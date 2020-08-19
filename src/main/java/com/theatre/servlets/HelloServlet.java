@@ -22,15 +22,15 @@ public class HelloServlet extends HttpServlet{
 
         printWriter.println("This is generated using generic servlet");
 
-    }*/
 
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+  /* protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String name= request.getParameter("name");
         String age= request.getParameter("age");
         String city= request.getParameter("city");
         
-        Integer ageInt = Integer.valueOf(age);
+        Integer ageInt = new Integer(age);
         StringBuilder msg = new StringBuilder();
 
         msg.append("Hi" +name + ",from," +city + "." );
@@ -43,7 +43,7 @@ public class HelloServlet extends HttpServlet{
         PrintWriter printWriter = response.getWriter();
         printWriter.println(msg);
 
-    }
+    }*/
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 

@@ -1,1 +1,5 @@
+com/theatre/servlets/RoomServlet.class
+com/theatre/utilities/listeners/DatabaseBootstrap.class
+com/theatre/model/Room.class
 com/theatre/servlets/HelloServlet.class
+com/theatre/utilities/DbConnection.class
