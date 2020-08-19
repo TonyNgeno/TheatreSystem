@@ -1,5 +1,8 @@
 package com.theatre.servlets;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.theatre.model.Room;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +15,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/rooms")
 public class RoomServlet extends HttpServlet {
@@ -19,30 +24,28 @@ public class RoomServlet extends HttpServlet {
 
         ServletContext scx = getServletContext();
         Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
+        resp.setContentType("text/plain");
 
-        resp.setContentType("text/html");
+        List<Room> rooms = new ArrayList<Room>();
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("<table width='100%'><tr><th>NAME</th><th>ROOM NO</th><tr>");
         try {
             PreparedStatement statement = dbConnection.prepareStatement("SELECT * FROM rooms");
             statement.execute();
             ResultSet result = statement.getResultSet();
 
             while (result.next()){
-                stringBuilder.append("<tr><th>" + result.getString("name")
-                        + "</th><th>" + result.getString("roomNo") + "</th><tr>");
+               Room room = new Room();
+               room.setName(result.getString("name"));
+               room.setRoomNo(result.getString("roomNo"));
+
+               rooms.add(room);
             }
 
         }catch (SQLException sqlEx){
             sqlEx.printStackTrace();
         }
 
-        stringBuilder.append("</table>");
-
-
-        PrintWriter printWriter = resp.getWriter();
-        printWriter.println(stringBuilder);
-
+        ObjectMapper mapper = new ObjectMapper();
+        resp.getWriter().print(mapper.writeValueAsString(rooms));
     }
 }
