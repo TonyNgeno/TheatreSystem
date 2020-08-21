@@ -20,6 +20,7 @@ import java.util.List;
 
 @WebServlet("/rooms")
 public class RoomServlet extends HttpServlet {
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ServletContext scx = getServletContext();
@@ -34,11 +35,11 @@ public class RoomServlet extends HttpServlet {
             ResultSet result = statement.getResultSet();
 
             while (result.next()){
-               Room room = new Room();
-               room.setName(result.getString("name"));
-               room.setRoomNo(result.getString("roomNo"));
+                Room room = new Room();
+                room.setName(result.getString("name"));
+                room.setRoomNo(result.getString("roomNo"));
 
-               rooms.add(room);
+                rooms.add(room);
             }
 
         }catch (SQLException sqlEx){
@@ -47,5 +48,29 @@ public class RoomServlet extends HttpServlet {
 
         ObjectMapper mapper = new ObjectMapper();
         resp.getWriter().print(mapper.writeValueAsString(rooms));
+
     }
+
+    protected  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        ServletContext scx = getServletContext();
+        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
+
+        String name = request.getParameter("name");
+        String roomNo = request.getParameter("roomNo");
+
+        try {
+            PreparedStatement statement = dbConnection.prepareStatement("insert into rooms(name,roomNo) values(?, ?)");
+            statement.setString(1, name);
+            statement.setString(2, roomNo);
+            statement.executeUpdate();
+
+            response.getWriter().print("OK");
+
+        }catch (SQLException sqlEx){
+            sqlEx.printStackTrace();
+        }
+
+    }
+
+
 }
