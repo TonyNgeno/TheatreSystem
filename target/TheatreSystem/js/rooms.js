@@ -2,7 +2,7 @@
     TheatreJsLib.showGrid.call({
         dataUrl: 'rooms',
         gridStyle: 'rooms',
-        componentId: 'room',
+        componentId: 'rooms',
         gridColumns:[{
             header: 'Name',
             dataIndex: 'name'
@@ -30,12 +30,12 @@
             label: 'Room Name',
             name: 'name',
             type: 'text',
-            id: 'room-name'
+            id: 'name'
         },{
             label: 'Room No',
-            name: 'address',
+            name: 'roomNo',
             type: 'text',
-            id: 'room-no'
+            id: 'roomNo'
         }]
     });
 })();
