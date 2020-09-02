@@ -20,4 +20,5 @@ public class Room {
     public void setRoomNo(String roomNo) {
         this.roomNo = roomNo;
     }
+
 }
