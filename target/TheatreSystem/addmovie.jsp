@@ -6,7 +6,7 @@
 <body>
  <%@ include file="./page/navbar.jsp" %><br>
 
-   <form method="post" action="insertRooms">
+   <form method="post" action="addMovie">
    <div class = "container">
    <h1 align="center"> Add A Room<h1><br>
      <div class="form-group">
@@ -15,8 +15,8 @@
      </div>
 
      <div class="form-group">
-       <label for="InputSeats" class="grey-text font-weight-light">Enter Seats</label>
-       <input type="text" class="form-control" name="noOfSeats" placeholder="Enter Seats">
+       <label for="InputDescription" class="grey-text font-weight-light">Enter Description</label>
+       <input type="text" class="form-control" name="description" placeholder="Description">
      </div>
      <button type="submit" class="btn btn-primary">Submit</button>
 

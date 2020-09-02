@@ -1,3 +1,11 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
+<%@page import="com.theatre.utilities.*" %>
+<%@page import="com.theatre.*" %>
+<%@page import="com.theatre.servlet.*" %>
+<%@page import="javax.sql.DataSource" %>
+<%@page import="javax.annotation.Resource" %>
+<%@page import="javax.naming.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +20,29 @@
      <div class="form-group">
       <label for="movieName">Choose a Movie:</label>
       <select name="movieName" id="movieName">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
+        <%
+        try
+            {
+                 Context context = new InitialContext();
+                 DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
+                 Connection connection = dataSource.getConnection();
+                String query = "Select * from movies";
+                Statement statement = connection.createStatement();
+                ResultSet result = statement.executeQuery(query);
+                while(result.next())
+                {
+                    %>
+                        <option value="<%=result.getString("name")%>"><%=result.getString("name")%></option>
+                    <%
+
+                }
+                }
+        catch(Exception ex)
+            {
+                out.println("Exception:" +ex.getMessage());
+                ex.printStackTrace();
+            }
+        %>
       </select>
      </div>
 
@@ -35,9 +62,35 @@
      </div>
 
      <div class="form-group">
-        <label for="InputCinemaRoom" class="grey-text font-weight-light">Enter Cinema Room</label>
-        <input type="text" class="form-control" name="cinemaRoomName" placeholder="Enter Cinema Room">
+      <label for="name">Choose a Room:</label>
+      <select name="cinemaRoomName" id="cinemaRoomName">
+        <%
+        try
+            {
+                 Context context = new InitialContext();
+                 DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
+                 Connection connection = dataSource.getConnection();
+                String query = "Select * from rooms";
+                Statement statement = connection.createStatement();
+                ResultSet result = statement.executeQuery(query);
+                while(result.next())
+                {
+                    %>
+                        <option value="<%=result.getString("name")%>"><%=result.getString("name")%></option>
+                    <%
+
+                }
+                }
+        catch(Exception ex)
+            {
+                out.println("Exception:" +ex.getMessage());
+                ex.printStackTrace();
+            }
+        %>
+      </select>
      </div>
+
+
 
 
 
