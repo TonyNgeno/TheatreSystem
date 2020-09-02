@@ -1,23 +1,180 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
+<%@page import="com.theatre.utilities.*" %>
+<%@page import="com.theatre.utilities.listeners.DatabaseBootstrap" %>
+<%@page import="com.theatre.*" %>
+<%@page import="com.theatre.servlet.*" %>
+<%@page import="javax.sql.DataSource" %>
+<%@page import="javax.annotation.Resource" %>
+<%@page import="javax.naming.*" %>
+
 <html>
 <head>
-    <script src="./js/app.js"></script>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="bootstrap-4.5.2-dist/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link href="bootstrap-4.5.2-dist/css/simple-sidebar.css" rel="stylesheet">
-    <title>50th Century Theatres</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<title>Rooms</title>
 </head>
 <body>
-<%@ include file="navbar.jsp" %>
-<div class="container-fluid" id="module-content"></div>
+ <%@ include file="./page/navbar.jsp" %><br>
+ <div class="container-lg">
+     <div class="table-responsive">
+         <div class="table-wrapper">
+             <div class="table-title">
+	<table class = "table table-bordered table-stripped table-condensed" align = "center">
+		<tr>
+		    <thead class="thead-dark">
+                <th scope="col">No</th>
+                <th scope="col">Room Name</th>
+                <th scope="col">No of Seats</th>
+                <th scope="col">Action</th>
+            </thead>
+		</tr>
+		             <a href="addroom.jsp"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Room</button></a><br><br>
 
-<!--<div id="content"></div>-->
-<script src="./js/rooms.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <%
+            Context context = new InitialContext();
+            DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
+            try
+            {
+                Connection connection = dataSource.getConnection();
+                String query = "Select * from rooms";
+                Statement statement = connection.createStatement();
+                ResultSet result = statement.executeQuery(query);
+                int count = 0;
+                while(result.next())
+                {
+                count += 1;
+                %>
 
+                <tr>
+                <td><%=count%></td>
+                <td><%=result.getString("name")%></td>
+                <td><%=result.getString("noOfSeats")%></td>
+                <td>
+                    <a href="update.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a href="delete.jsp?id=<%=result.getString("id") %>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+
+                </tr>
+                <%
+
+                }
+            }
+            catch(Exception ex)
+            {
+                out.println("Exception:" +ex.getMessage());
+                ex.printStackTrace();
+            }
+
+            %>
+	</table>
+    </div>
+        </div>
+            </div>
+                </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

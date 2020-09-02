@@ -1,9 +1,9 @@
 package com.theatre.model;
 
 public class Room {
-
+    private int id;
     private String name;
-    private String roomNo;
+    private String noOfSeats;
 
     public String getName() {
         return name;
@@ -13,12 +13,19 @@ public class Room {
         this.name = name;
     }
 
-    public String getRoomNo() {
-        return roomNo;
+    public String getNoOfSeats() {
+        return noOfSeats;
     }
 
-    public void setRoomNo(String roomNo) {
-        this.roomNo = roomNo;
+    public void setNoOfSeats(String noOfSeats) {
+        this.noOfSeats = noOfSeats;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

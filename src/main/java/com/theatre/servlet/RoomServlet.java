@@ -1,6 +1,7 @@
 package com.theatre.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.theatre.annotation.NotSaveToDb;
 import com.theatre.annotation.SaveToDb;
 import com.theatre.bean.RoomBean;
 import com.theatre.bean.RoomBeanI;
@@ -21,8 +22,8 @@ import java.sql.Connection;
 @WebServlet("/rooms")
 public class RoomServlet extends HttpServlet {
 
-    @Inject @SaveToDb
-    private RoomBeanI roomBean;
+    @Inject
+    private RoomBean roomBean;
 
     @Inject
     private Room room ;
@@ -50,6 +51,7 @@ public class RoomServlet extends HttpServlet {
             e.printStackTrace();
         }
         response.getWriter().print(roomBean.add(dbConnection, room));
+        response.sendRedirect("cinemarooms.jsp");
     }
 
 
