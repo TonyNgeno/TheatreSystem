@@ -13,10 +13,14 @@
 </head>
 <body>
  <%@ include file="./page/navbar.jsp" %><br>
-
+   <div class = "container">
+   <div class="card">
+   <div class="card-body px-lg-5 pt-0">
+       <h5 class="card-header info-color white-text text-center py-4">
+           <strong>Add Schedule</strong>
+       </h5>
    <form method="post" action="insertSchedule">
    <div class = "container">
-   <h1 align="center"> Add A Schedule<h1><br>
      <div class="form-group">
       <label for="movieName">Choose a Movie:</label>
       <select name="movieName" id="movieName">
@@ -97,6 +101,8 @@
      <button type="submit" class="btn btn-primary">Submit</button>
 
    </form>
+   </div>
+   </div>
    </div>
 </body>
 </html>

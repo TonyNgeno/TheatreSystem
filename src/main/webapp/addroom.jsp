@@ -6,9 +6,13 @@
 <body>
  <%@ include file="./page/navbar.jsp" %><br>
 
-   <form method="post" action="rooms">
    <div class = "container">
-   <h1 align="center"> Add A Room<h1><br>
+   <div class="card">
+   <div class="card-body px-lg-5 pt-0">
+       <h5 class="card-header info-color white-text text-center py-4">
+           <strong>Add Room</strong>
+       </h5>
+   <form method="post" action="rooms">
      <div class="form-group">
        <label for="InputName" class="grey-text font-weight-light">Room Name</label>
        <input type="text" class="form-control" name="name" placeholder="Enter Room Name">
@@ -22,5 +26,7 @@
    </form>
 
    </div>
+    </div>
+     </div>
 </body>
 </html>

@@ -33,7 +33,7 @@
                 <th scope="col">No of Seats</th>
                 <th scope="col">Action</th>
             </thead>
-		</tr>
+		</tr><br>
 		             <a href="addroom.jsp"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Room</button></a><br><br>
 
             <%
@@ -57,7 +57,7 @@
                 <td><%=result.getString("noOfSeats")%></td>
                 <td>
                     <a href="update.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="deleterooms.jsp?id=<%=result.getString("id") %>" onclick="return confirm('Are you sure you want to delete this item?') class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="deleterooms.jsp?id=<%=result.getString("id") %>"onclick="return confirm('Are you sure you want to delete?')"  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                 </td>
 
                 </tr>

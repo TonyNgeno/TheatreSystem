@@ -33,7 +33,7 @@
                 <th scope="col">Cinema Room</th>
                 <th scope="col">Action</th>
             </thead>
-		</tr>
+		</tr><br>
 		             <a href="addschedule.jsp"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Schedule</button></a><br><br>
             <%
             Context context = new InitialContext();
@@ -59,7 +59,7 @@
                 <td><%=result.getString("cinemaRoomName")%></td>
                 <td>
                     <a href="update.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="delete.jsp?id=<%=result.getString("id") %>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="deleteschedule.jsp?id=<%=result.getString("id") %>" onclick="return confirm('Are you sure you want to delete?')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                 </td>
 
                 </tr>
