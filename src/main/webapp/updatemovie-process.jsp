@@ -10,7 +10,7 @@
 <%
 
 String id=request.getParameter("id");
-String name=request.getParameter("name");
+String movieName=request.getParameter("movieName");
 String description=request.getParameter("description");
 try
 {
@@ -18,9 +18,11 @@ Context context = new InitialContext();
 DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
 Connection connection = dataSource.getConnection();
 Statement statement = connection.createStatement();
-statement.executeUpdate("update movies set name = \""+name+"\", description = \""+description+"\" where id = "+id+";");
-update movies set name = "Tony", description = "blah" where id = 4;
-response.sendRedirect("movies.jsp");
+System.out.println("id:"+id);
+System.out.println("name:" +movieName);
+System.out.println("description:" +description);
+statement.executeUpdate("update movies set movieName = \""+movieName+"\", description = \""+description+"\" where id = "+id+";");
+response.sendRedirect("./movies.jsp");
 }
 catch(Exception e)
 {

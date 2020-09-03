@@ -27,7 +27,7 @@ public class DatabaseBootstrap implements ServletContextListener {
 
             System.out.println("INFO: Creating tables");
             statement.execute("create table if not exists rooms(id int(20) not null AUTO_INCREMENT, name varchar(20), noOfSeats varchar(100),PRIMARY KEY(id))");
-            statement.execute("create table if not exists movies(id int(20) not null AUTO_INCREMENT, name varchar(20), description varchar(100),PRIMARY KEY(id))");
+            statement.execute("create table if not exists movies(id int(20) not null AUTO_INCREMENT, movieName varchar(20), description varchar(100), path varchar(100),PRIMARY KEY(id))");
             statement.execute("create table if not exists movieschedules(id int(20) not null AUTO_INCREMENT, movieName varchar(20), startTime varchar(100), endTime varchar(100), date varchar(100), cinemaRoomName varchar(20), PRIMARY KEY(id))");
             sce.getServletContext().setAttribute("dbConnection", connection);
 

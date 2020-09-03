@@ -56,7 +56,7 @@
                 <td><%=result.getString("name")%></td>
                 <td><%=result.getString("noOfSeats")%></td>
                 <td>
-                    <a href="update.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a href="updaterooms.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                     <a href="deleterooms.jsp?id=<%=result.getString("id") %>"onclick="return confirm('Are you sure you want to delete?')"  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                 </td>
 

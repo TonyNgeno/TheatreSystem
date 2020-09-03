@@ -20,7 +20,7 @@ Connection connection = dataSource.getConnection();
 String query = "Select * from movies";
 Statement statement = connection.createStatement();
 int i=statement.executeUpdate("DELETE FROM movies WHERE id=" +id);
-response.sendRedirect("movies.jsp");
+response.sendRedirect("./movies/movies.jsp");
 }
 catch(Exception e)
 {

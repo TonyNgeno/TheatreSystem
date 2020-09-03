@@ -16,13 +16,12 @@ public class MovieScheduleBean implements MovieScheduleBeanI{
             return "Fail";
         }
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into movieschedules(id, movieName, startTime, endTime, date, cinemaRoomName) values(?, ?, ?, ?, ?, ?)");
-            statement.setInt(1, movieSchedule.getId());
-            statement.setString(2, movieSchedule.getMovieName());
-            statement.setString(3, movieSchedule.getStartTime());
-            statement.setString(4, movieSchedule.getEndTime());
-            statement.setString(5, movieSchedule.getDate());
-            statement.setString(6, movieSchedule.getCinemaRoomName());
+            PreparedStatement statement = connection.prepareStatement("insert into movieschedules(movieName, startTime, endTime, date, cinemaRoomName) values(?, ?, ?, ?, ?)");
+            statement.setString(1, movieSchedule.getMovieName());
+            statement.setString(2, movieSchedule.getStartTime());
+            statement.setString(3, movieSchedule.getEndTime());
+            statement.setString(4, movieSchedule.getDate());
+            statement.setString(5, movieSchedule.getCinemaRoomName());
 
             statement.executeUpdate();
 
@@ -42,7 +41,6 @@ public class MovieScheduleBean implements MovieScheduleBeanI{
 
             while (result.next()) {
                 MovieSchedule movieSchedule = new MovieSchedule();
-                movieSchedule.setId(result.getInt("id"));
                 movieSchedule.setMovieName(result.getString("movieName"));
                 movieSchedule.setStartTime(result.getString("startTime"));
                 movieSchedule.setEndTime(result.getString("endTime"));

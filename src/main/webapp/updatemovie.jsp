@@ -31,28 +31,30 @@
    <div class = "container">
    <div class="card">
    <div class="card-body px-lg-5 pt-0">
-       <h5 class="card-header info-color white-text text-center py-4">
-           <strong>Add Movie</strong>
-       </h5>
-   <form method="post" action="updatemovie-process.jsp">
-     <div class="form-group">
-       <label for="InputName" class="grey-text font-weight-light">Movie Name</label>
-       <input type="text" class="form-control" name="name" value="<%=result.getString("name") %>" >
-     </div>
+           <h5 class="card-header info-color white-text text-center py-4">
+               <strong>Update Movie</strong>
+           </h5>
+       <form method="post" action="./updatemovie-process.jsp">
+        <input type="text" hidden=true class="form-control" name="id" value="<%=result.getString("id") %>">
 
-     <div class="form-group">
-       <label for="InputDescription" class="grey-text font-weight-light">Enter Description</label>
-       <input type="text" class="form-control" name="description" value="<%=result.getString("description") %>">
-     </div>
+         <div class="form-group">
+           <label for="InputName" class="grey-text font-weight-light">Movie Name</label>
+           <input type="text" class="form-control" name="movieName" value="<%=result.getString("movieName") %>" >
+         </div>
 
-     <div class="form-group">
-        <label for="Image" class="grey-text font-weight-light">Enter Image</label><br>
-        <input type="file" name="photo" id="photo">
-     </div><br><br>
+         <div class="form-group">
+           <label for="InputDescription" class="grey-text font-weight-light">Enter Description</label>
+           <input type="text" class="form-control" name="description" value="<%=result.getString("description") %>">
+         </div>
 
-     <button type="submit" class="btn btn-primary">Submit</button>
+         <div class="form-group">
+            <label for="Image" class="grey-text font-weight-light">Enter Image</label><br>
+            <input type="file" name="photo" id="photo">
+         </div><br><br>
 
-   </form>
+         <button type="submit" class="btn btn-primary">Submit</button>
+
+       </form>
    </div>
    </div>
    </div>

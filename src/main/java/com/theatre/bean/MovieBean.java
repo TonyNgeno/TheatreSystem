@@ -1,6 +1,8 @@
 package com.theatre.bean;
 
 import com.theatre.model.Movie;
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,10 +16,10 @@ public class MovieBean {
             return "Fail";
         }
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into movies(id, name, description) values(?, ?, ?)");
-            statement.setInt(1, movie.getId());
-            statement.setString(2, movie.getName());
-            statement.setString(3, movie.getDescription());
+            PreparedStatement statement = connection.prepareStatement("insert into movies(movieName, description, path) values(?, ?, ?)");
+            statement.setString(1, movie.getMovieName());
+            statement.setString(2, movie.getDescription());
+            statement.setString(3, movie.getPath());
             statement.executeUpdate();
 
         }catch (SQLException sqlEx){
@@ -36,9 +38,9 @@ public class MovieBean {
 
             while (result.next()) {
                 Movie movie = new Movie();
-                movie.setId(result.getInt("id"));
-                movie.setName(result.getString("name"));
+                movie.setMovieName(result.getString("movieName"));
                 movie.setDescription(result.getString("description"));
+                movie.setPath(result.getString("path"));
 
                 movies.add(movie);
             }

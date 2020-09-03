@@ -36,7 +36,7 @@
                 while(result.next())
                 {
                     %>
-                        <option value="<%=result.getString("name")%>"><%=result.getString("name")%></option>
+                        <option value="<%=result.getString("movieName")%>"><%=result.getString("movieName")%></option>
                     <%
 
                 }

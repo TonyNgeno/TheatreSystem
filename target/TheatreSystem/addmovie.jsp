@@ -13,10 +13,10 @@
        <h5 class="card-header info-color white-text text-center py-4">
            <strong>Add Movie</strong>
        </h5>
-   <form method="post" action="addMovie" >
+   <form method="post" action="addMovie" enctype="multipart/form-data">
      <div class="form-group">
        <label for="InputName" class="grey-text font-weight-light">Movie Name</label>
-       <input type="text" class="form-control" name="name" placeholder="Enter Movie Name">
+       <input type="text" class="form-control" name="movieName" placeholder="Enter Movie Name">
      </div>
 
      <div class="form-group">
@@ -26,7 +26,7 @@
 
      <div class="form-group">
         <label for="Image" class="grey-text font-weight-light">Enter Image</label><br>
-        <input type="file" name="photo" id="photo"
+        <input type="file" name="path" id="path">
      </div><br><br>
 
      <button type="submit" class="btn btn-primary">Submit</button>

@@ -5,7 +5,6 @@
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/model/Movie.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/annotation/NotSaveToDb.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/utilities/DbConnection.java
-/home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/model/User.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/bean/MovieScheduleBean.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/model/MovieSchedule.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/servlet/RoomServlet.java

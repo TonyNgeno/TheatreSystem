@@ -2,8 +2,9 @@ package com.theatre.model;
 
 public class Movie {
     private int id;
-    private String name;
+    private String movieName;
     private String description;
+    private String path;
 
     public int getId() {
         return id;
@@ -13,12 +14,12 @@ public class Movie {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 
     public String getDescription() {
@@ -27,6 +28,14 @@ public class Movie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
 

@@ -21,10 +21,9 @@ public class RoomBean implements RoomBeanI {
             return "Fail";
         }
         try {
-            PreparedStatement statement = connection.prepareStatement("insert into rooms(id, name, noOfSeats) values(?, ?, ?)");
-                statement.setInt(1, room.getId());
-            statement.setString(2, room.getName());
-            statement.setString(3, room.getNoOfSeats());
+            PreparedStatement statement = connection.prepareStatement("insert into rooms(name, noOfSeats) values(?, ?)");
+            statement.setString(1, room.getName());
+            statement.setString(2, room.getNoOfSeats());
             statement.executeUpdate();
 
 
@@ -44,7 +43,6 @@ public class RoomBean implements RoomBeanI {
 
             while (result.next()) {
                 Room room = new Room();
-                room.setId(result.getInt("id"));
                 room.setName(result.getString("name"));
                 room.setNoOfSeats(result.getString("noOfSeats"));
 

@@ -1,6 +1,5 @@
 com/theatre/utilities/listeners/DatabaseBootstrap.class
 com/theatre/servlet/MovieScheduleServlet.class
-com/theatre/model/User.class
 com/theatre/bean/RoomBeanI.class
 com/theatre/model/Movie.class
 com/theatre/bean/MovieScheduleBeanI.class
