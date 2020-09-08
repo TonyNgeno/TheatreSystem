@@ -24,7 +24,9 @@ Connection connection = dataSource.getConnection();
 Statement statement = connection.createStatement();
 statement.executeUpdate("update movieschedules set movieName = \""+movieName+"\", startTime = \""+startTime+"\", endTime = \""+endTime+"\" , date = \""+date+"\", cinemaRoomName = \""+cinemaRoomName+"\"   where id = "+id+";");
 response.sendRedirect("movieschedule.jsp");
+connection.close();
 }
+
 catch(Exception e)
 {
 System.out.print(e);

@@ -16,7 +16,7 @@
             <div class="sidebar-heading"><b>50th Century Theatres</b></div>
             <div class="list-group list-group-flush">
                 <a href="./index.jsp" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Now Showing</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Reservations</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Bookings</a>
                 <a href="./movies.jsp" class="list-group-item list-group-item-action bg-light">Movies</a>
                 <a href="./movieschedule.jsp" class="list-group-item list-group-item-action bg-light">Schedules</a>

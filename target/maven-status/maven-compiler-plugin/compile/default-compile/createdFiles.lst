@@ -1,13 +1,9 @@
-com/theatre/utilities/listeners/DatabaseBootstrap.class
 com/theatre/servlet/MovieScheduleServlet.class
 com/theatre/bean/RoomBeanI.class
 com/theatre/model/Movie.class
 com/theatre/bean/MovieScheduleBeanI.class
 com/theatre/bean/MovieBeanI.class
 com/theatre/servlet/RoomServlet.class
-com/theatre/utilities/DbConnection.class
-com/theatre/annotation/NotSaveToDb.class
-com/theatre/annotation/SaveToDb.class
 com/theatre/bean/MovieScheduleBean.class
 com/theatre/model/MovieSchedule.class
 com/theatre/bean/RoomBean.class

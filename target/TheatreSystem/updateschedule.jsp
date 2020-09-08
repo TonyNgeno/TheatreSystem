@@ -97,7 +97,9 @@
                     <%
 
                 }
+                connection.close();
                 }
+
         catch(Exception ex)
             {
                 out.println("Exception:" +ex.getMessage());

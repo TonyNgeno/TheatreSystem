@@ -20,7 +20,9 @@ String query = "Select * from movieschedules";
 Statement statement = connection.createStatement();
 int i=statement.executeUpdate("DELETE FROM movieschedules WHERE id="+id);
 response.sendRedirect("movieschedule.jsp");
+connection.close();
 }
+
 catch(Exception e)
 {
 System.out.print(e);

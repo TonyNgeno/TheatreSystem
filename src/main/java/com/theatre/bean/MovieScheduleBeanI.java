@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.List;
 
 public interface MovieScheduleBeanI {
-    String add(Connection connection, MovieSchedule movieSchedule);
+    String add(MovieSchedule movieSchedule);
 
-    List<MovieSchedule> list(Connection connection);
+    List<MovieSchedule> list();
 }

@@ -20,6 +20,7 @@ Connection connection = dataSource.getConnection();
 Statement statement = connection.createStatement();
 statement.executeUpdate("update rooms set name = \""+name+"\", noOfSeats = \""+noOfSeats+"\" where id = "+id+";");
 response.sendRedirect("cinemarooms.jsp");
+connection.close();
 }
 catch(Exception e)
 {

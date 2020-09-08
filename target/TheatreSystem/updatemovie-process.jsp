@@ -23,7 +23,9 @@ System.out.println("name:" +movieName);
 System.out.println("description:" +description);
 statement.executeUpdate("update movies set movieName = \""+movieName+"\", description = \""+description+"\" where id = "+id+";");
 response.sendRedirect("./movies.jsp");
+connection.close();
 }
+
 catch(Exception e)
 {
 System.out.print(e);

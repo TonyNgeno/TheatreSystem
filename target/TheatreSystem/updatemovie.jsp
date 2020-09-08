@@ -61,6 +61,7 @@
       <%
 
                    }
+                   connection.close();
                }
                catch(Exception ex)
                {

@@ -1,9 +1,22 @@
 package com.theatre.model;
 
-public class Movie {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "movies")
+public class Movie implements Serializable {
+
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String movieName;
+
+    @Column
     private String description;
+
+    @Column
     private String path;
 
     public int getId() {

@@ -1,8 +1,19 @@
 package com.theatre.model;
 
-public class Room {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "rooms")
+public class Room implements Serializable {
+
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String name;
+
+    @Column
     private String noOfSeats;
 
     public String getName() {

@@ -2,9 +2,12 @@ package com.theatre.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theatre.bean.MovieBean;
+import com.theatre.bean.MovieBeanI;
+import com.theatre.bean.RoomBeanI;
 import com.theatre.model.Movie;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -27,9 +30,8 @@ import java.sql.Connection;
 public class MovieServlet extends HttpServlet {
 
     private static final String SAVE_DIR = "img";
-
-    @Inject
-    private MovieBean movieBean;
+    @EJB
+    private MovieBeanI movieBean;
 
     @Inject
     private Movie movie ;
@@ -42,7 +44,7 @@ public class MovieServlet extends HttpServlet {
         resp.setContentType("text/plain");
 
         ObjectMapper mapper = new ObjectMapper();
-        resp.getWriter().print(mapper.writeValueAsString(movieBean.list(dbConnection)));
+        resp.getWriter().print(mapper.writeValueAsString(movieBean.list()));
 
     }
 
@@ -77,7 +79,8 @@ public class MovieServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        response.getWriter().print(movieBean.add(dbConnection, movie));
+        response.getWriter().print(movieBean.add(movie));
+
         response.sendRedirect("movies.jsp");
     }
 }

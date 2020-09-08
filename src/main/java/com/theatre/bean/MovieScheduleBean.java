@@ -3,6 +3,10 @@ package com.theatre.bean;
 import com.theatre.model.Movie;
 import com.theatre.model.MovieSchedule;
 
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,50 +14,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Stateless
+@Remote
 public class MovieScheduleBean implements MovieScheduleBeanI{
-    public String add(Connection connection, MovieSchedule movieSchedule){
-        if(connection == null || movieSchedule == null){
-            return "Fail";
-        }
-        try {
-            PreparedStatement statement = connection.prepareStatement("insert into movieschedules(movieName, startTime, endTime, date, cinemaRoomName) values(?, ?, ?, ?, ?)");
-            statement.setString(1, movieSchedule.getMovieName());
-            statement.setString(2, movieSchedule.getStartTime());
-            statement.setString(3, movieSchedule.getEndTime());
-            statement.setString(4, movieSchedule.getDate());
-            statement.setString(5, movieSchedule.getCinemaRoomName());
 
-            statement.executeUpdate();
+    @PersistenceContext
+    private EntityManager em;
 
-        }catch (SQLException sqlEx){
-            sqlEx.printStackTrace();
-        }
-        return "OK";
+
+    @Override
+    public String add(MovieSchedule movieSchedule) {
+        em.merge(movieSchedule);
+
+        return "ok";
     }
 
-    public List<MovieSchedule> list(Connection connection) {
-        List<MovieSchedule> movieSchedules = new ArrayList<MovieSchedule>();
-
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM movieschedules");
-            statement.execute();
-            ResultSet result = statement.getResultSet();
-
-            while (result.next()) {
-                MovieSchedule movieSchedule = new MovieSchedule();
-                movieSchedule.setMovieName(result.getString("movieName"));
-                movieSchedule.setStartTime(result.getString("startTime"));
-                movieSchedule.setEndTime(result.getString("endTime"));
-                movieSchedule.setDate(result.getString("date"));
-                movieSchedule.setCinemaRoomName(result.getString("cinemaRoomName"));
-
-                movieSchedules.add(movieSchedule);
-            }
-
-        } catch (
-                SQLException sqlEx) {
-            sqlEx.printStackTrace();
-        }
-        return movieSchedules;
+    @Override
+    public List<MovieSchedule> list() {
+        return em.createQuery("From MovieSchedule ms").getResultList();
     }
 }

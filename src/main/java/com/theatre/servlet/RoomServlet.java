@@ -1,13 +1,12 @@
 package com.theatre.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.theatre.annotation.NotSaveToDb;
-import com.theatre.annotation.SaveToDb;
 import com.theatre.bean.RoomBean;
 import com.theatre.bean.RoomBeanI;
 import com.theatre.model.Room;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -22,26 +21,20 @@ import java.sql.Connection;
 @WebServlet("/rooms")
 public class RoomServlet extends HttpServlet {
 
-    @Inject
-    private RoomBean roomBean;
+    @EJB
+    private RoomBeanI roomBean;
 
     @Inject
     private Room room ;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ServletContext scx = getServletContext();
-        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
-        resp.setContentType("text/plain");
-
         ObjectMapper mapper = new ObjectMapper();
-        resp.getWriter().print(mapper.writeValueAsString(roomBean.list(dbConnection)));
+        resp.getWriter().print(mapper.writeValueAsString(roomBean.list()));
 
     }
 
     protected  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        ServletContext scx = getServletContext();
-        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
 
         try {
             BeanUtils.populate(room, request.getParameterMap());
@@ -50,7 +43,8 @@ public class RoomServlet extends HttpServlet {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        response.getWriter().print(roomBean.add(dbConnection, room));
+
+        response.getWriter().print(roomBean.add(room));
         response.sendRedirect("cinemarooms.jsp");
     }
 

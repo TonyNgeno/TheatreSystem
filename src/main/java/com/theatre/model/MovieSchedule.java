@@ -1,16 +1,30 @@
 package com.theatre.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 
+@Entity
+@Table(name = "movieschedules")
+public class MovieSchedule implements Serializable {
 
-public class MovieSchedule {
-
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String movieName;
+
+    @Column
     private String startTime;
+
+    @Column
     private String endTime;
+
+    @Column
     private String date;
+
+    @Column
     private String cinemaRoomName;
 
     public String getStartTime() {

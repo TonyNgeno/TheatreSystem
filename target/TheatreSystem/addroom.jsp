@@ -12,6 +12,7 @@
        <h5 class="card-header info-color white-text text-center py-4">
            <strong>Add Room</strong>
        </h5>
+
    <form method="post" action="rooms">
      <div class="form-group">
        <label for="InputName" class="grey-text font-weight-light">Room Name</label>

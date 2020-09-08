@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
 <%@page import="com.theatre.utilities.*" %>
-<%@page import="com.theatre.utilities.listeners.DatabaseBootstrap" %>
 <%@page import="com.theatre.*" %>
 <%@page import="com.theatre.servlet.*" %>
 <%@page import="javax.sql.DataSource" %>
@@ -9,6 +8,7 @@
 <%@page import="javax.naming.*" %>
 
 <html>
+
 <head>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -27,7 +27,7 @@
              <div class="table-title">
 	<table class = "table table-bordered table-stripped table-condensed" align = "center">
 		<tr>
-		    <thead class="thead-dark">
+		    <thead>
                 <th scope="col">No</th>
                 <th scope="col">Room Name</th>
                 <th scope="col">No of Seats</th>
@@ -56,14 +56,15 @@
                 <td><%=result.getString("name")%></td>
                 <td><%=result.getString("noOfSeats")%></td>
                 <td>
-                    <a href="updaterooms.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="deleterooms.jsp?id=<%=result.getString("id") %>"onclick="return confirm('Are you sure you want to delete?')"  class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                     <a href="updaterooms.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><button class="btn btn-success btn-sm rounded-0" href="updaterooms.jsp?id=<%=result.getString("id") %>"  type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                     <a href="deleterooms.jsp?id=<%=result.getString("id") %>"onclick="return confirm('Are you sure you want to delete?')"  class="delete" title="Delete" data-toggle="tooltip"><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
                 </td>
 
                 </tr>
                 <%
 
                 }
+                 connection.close();
             }
             catch(Exception ex)
             {

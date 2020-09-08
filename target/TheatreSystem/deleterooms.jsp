@@ -21,7 +21,10 @@ String query = "Select * from rooms";
 Statement statement = connection.createStatement();
 int i=statement.executeUpdate("DELETE FROM rooms WHERE id="+id);
 response.sendRedirect("cinemarooms.jsp");
+connection.close();
 }
+
+
 catch(Exception e)
 {
 System.out.print(e);
