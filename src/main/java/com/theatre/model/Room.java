@@ -2,19 +2,24 @@ package com.theatre.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Blob;
 
+@NamedQuery(name = "Room.findAll", query = "From Room r")
 @Entity
 @Table(name = "rooms")
-public class Room implements Serializable {
+public class Room extends BaseEntity {
 
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 
     @Column
     private String name;
 
     @Column
     private String noOfSeats;
+
+    private Seats seats;
+
+    @Column
+    private Blob roomPic;
 
     public String getName() {
         return name;
@@ -32,11 +37,4 @@ public class Room implements Serializable {
         this.noOfSeats = noOfSeats;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

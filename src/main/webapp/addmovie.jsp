@@ -24,6 +24,11 @@
        <input type="text" class="form-control" name="description" placeholder="Description">
      </div>
 
+    <div class="form-group">
+         <label for="MovieLength" class="grey-text font-weight-light">Movie Length</label><br>
+         <input type="text" name="movieLength" id="movieLength" placeholder="Enter Length(in minutes)">
+    </div><br><br>
+
      <div class="form-group">
         <label for="Image" class="grey-text font-weight-light">Enter Image</label><br>
         <input type="file" name="path" id="path">

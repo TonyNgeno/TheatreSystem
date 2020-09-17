@@ -19,22 +19,7 @@
 </head>
 <body>
  <%@ include file="./page/navbar.jsp" %><br>
- <div class="container-lg">
-     <div class="table-responsive">
-         <div class="table-wrapper">
-             <div class="table-title">
-	<table class = "table table-bordered table-stripped table-condensed" align = "center">
-		<tr>
-		    <thead class="thead-dark">
-                <th scope="col">No</th>
-                <th scope="col">Movie Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Picture</th>
-                <th scope="col">Action</th>
-            </thead>
-		</tr><br>
-		             <a href="addmovie.jsp"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Movie</button></a><br><br>
-
+ <div class="container marketing">
             <%
              Context context = new InitialContext();
              DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
@@ -49,18 +34,18 @@
                 {
                 count += 1;
                 %>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img class="img-circle" src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Generic placeholder image" width="140" height="140">
+                            <h2><%=result.getString("movieName")%></h2>
+                            <p><%=result.getString("description")%></p>
+                            <p><%=result.getString("movieLength")%> mins</p>
+                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                            <a href="updatemovie.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a href="deletemovie.jsp?id=<%=result.getString("id") %>" onclick="return confirm('Are you sure you want to delete?')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </div>
+                    </div>
 
-                <tr>
-                <td><%=count%></td>
-                <td><%=result.getString("movieName")%></td>
-                <td><%=result.getString("description")%></td>
-                <td><%=result.getString("path")%></td>
-                <td>
-                    <a href="updatemovie.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="deletemovie.jsp?id=<%=result.getString("id") %>" onclick="return confirm('Are you sure you want to delete?')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                </td>
-
-                </tr>
                 <%
                 }
             }
@@ -69,11 +54,7 @@
                 out.println("Exception:" +ex.getMessage());
                 ex.printStackTrace();
             }
-            %>
-	</table>
-    </div>
-        </div>
-            </div>
-                </div>
+        %>
+</div>
 </body>
 </html>

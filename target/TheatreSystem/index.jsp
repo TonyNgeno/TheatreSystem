@@ -1,11 +1,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
 <%@page import="com.theatre.utilities.*" %>
+<%@page import="com.theatre.model.*" %>
 <%@page import="com.theatre.*" %>
 <%@page import="com.theatre.servlet.*" %>
 <%@page import="javax.sql.DataSource" %>
 <%@page import="javax.annotation.Resource" %>
 <%@page import="javax.naming.*" %>
+
+<%
+
+UserDetail userDetails = (UserDetail)session.getAttribute("userlogin");
+
+if(userDetails == null){
+    response.sendRedirect("login.jsp");
+    return;
+}
+
+%>
 <!DOCTYPE html>
 <html>
 <head>

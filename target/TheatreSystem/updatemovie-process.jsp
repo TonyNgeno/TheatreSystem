@@ -12,16 +12,14 @@
 String id=request.getParameter("id");
 String movieName=request.getParameter("movieName");
 String description=request.getParameter("description");
+String movieLength=request.getParameter("movieLength");
 try
 {
 Context context = new InitialContext();
 DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
 Connection connection = dataSource.getConnection();
 Statement statement = connection.createStatement();
-System.out.println("id:"+id);
-System.out.println("name:" +movieName);
-System.out.println("description:" +description);
-statement.executeUpdate("update movies set movieName = \""+movieName+"\", description = \""+description+"\" where id = "+id+";");
+statement.executeUpdate("update movies set movieName = \""+movieName+"\", description = \""+description+"\",  movieLength = \""+movieLength+"\" where id = "+id+";");
 response.sendRedirect("./movies.jsp");
 connection.close();
 }

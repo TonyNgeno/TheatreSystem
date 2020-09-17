@@ -34,7 +34,7 @@
            <h5 class="card-header info-color white-text text-center py-4">
                <strong>Update Movie</strong>
            </h5>
-       <form method="post" action="./updatemovie-process.jsp">
+       <form method="post" action="updatemovie-process.jsp">
         <input type="text" hidden=true class="form-control" name="id" value="<%=result.getString("id") %>">
 
          <div class="form-group">
@@ -45,6 +45,12 @@
          <div class="form-group">
            <label for="InputDescription" class="grey-text font-weight-light">Enter Description</label>
            <input type="text" class="form-control" name="description" value="<%=result.getString("description") %>">
+         </div>
+
+
+         <div class="form-group">
+           <label for="InputDescription" class="grey-text font-weight-light">Movie Length</label>
+           <input type="text" class="form-control" name="movieLength" value="<%=result.getString("movieLength") %>">
          </div>
 
          <div class="form-group">

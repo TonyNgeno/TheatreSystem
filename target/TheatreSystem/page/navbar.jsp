@@ -1,5 +1,11 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.theatre.model.*" %>
 <!DOCTYPE html>
 <html>
+<%
+UserDetail userDetail = (UserDetail)session.getAttribute("userlogin");
+
+%>
 <head>
     <script src="./js/app.js"></script>
     <!-- Required meta tags -->
@@ -14,14 +20,15 @@
 <div class="d-flex" id="wrapper">
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading"><b>50th Century Theatres</b></div>
+            <div class="sidebar-heading"><b>Welcome <%=userDetail.getUsername()%></b></div>
             <div class="list-group list-group-flush">
                 <a href="./index.jsp" class="list-group-item list-group-item-action bg-light">Dashboard</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Reservations</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Bookings</a>
+                <a href="booking.jsp" class="list-group-item list-group-item-action bg-light">Bookings</a>
                 <a href="./movies.jsp" class="list-group-item list-group-item-action bg-light">Movies</a>
                 <a href="./movieschedule.jsp" class="list-group-item list-group-item-action bg-light">Schedules</a>
                 <a href="./cinemarooms.jsp" class="list-group-item list-group-item-action bg-light">Cinema Rooms</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Logout</a>
+                <a href="logoutServlet" class="list-group-item list-group-item-action bg-light">Logout</a>
             </div>
 </div>
 <script src="./js/rooms.js"></script>

@@ -2,15 +2,11 @@ package com.theatre.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
+
 
 @Entity
 @Table(name = "movieschedules")
-public class MovieSchedule implements Serializable {
-
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class MovieSchedule extends BaseEntity {
 
     @Column
     private String movieName;
@@ -67,11 +63,4 @@ public class MovieSchedule implements Serializable {
         this.cinemaRoomName = cinemaRoomName;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

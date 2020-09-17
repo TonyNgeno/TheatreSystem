@@ -23,6 +23,11 @@
        <label for="InputSeats" class="grey-text font-weight-light">No of Seats Available</label>
        <input type="text" class="form-control" name="noOfSeats" placeholder="Enter No of Seats">
      </div>
+
+    <div class="form-group">
+        <label for="roomPic" class="grey-text font-weight-light">Add Room Picture</label>
+       <input type="file" name="roomPic"><br><br>
+    </div>
      <button type="submit" class="btn btn-primary">Submit</button>
    </form>
 

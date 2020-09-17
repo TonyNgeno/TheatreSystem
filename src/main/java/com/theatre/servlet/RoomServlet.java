@@ -1,14 +1,13 @@
 package com.theatre.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.theatre.bean.RoomBean;
 import com.theatre.bean.RoomBeanI;
 import com.theatre.model.Room;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
-import javax.servlet.ServletContext;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
 
 @WebServlet("/rooms")
 public class RoomServlet extends HttpServlet {

@@ -5,8 +5,10 @@ import com.theatre.model.Room;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+
 
 @Stateless
 @Remote
@@ -27,6 +29,8 @@ public class RoomBean implements RoomBeanI {
        return em.createQuery("From Room o").getResultList();
 
     }
+
+
 
     @Override
     public String delete(Room room) {

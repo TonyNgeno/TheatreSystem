@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
 
 @WebServlet("/addMovie")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10,
@@ -37,11 +36,6 @@ public class MovieServlet extends HttpServlet {
     private Movie movie ;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-        ServletContext scx = getServletContext();
-        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
-        resp.setContentType("text/plain");
 
         ObjectMapper mapper = new ObjectMapper();
         resp.getWriter().print(mapper.writeValueAsString(movieBean.list()));
@@ -61,8 +55,6 @@ public class MovieServlet extends HttpServlet {
 
     protected  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         PrintWriter out  = response.getWriter();
-        ServletContext scx = getServletContext();
-        Connection dbConnection = (Connection) scx.getAttribute("dbConnection");
 
         String savePath = "/home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/webapp" + File.separator + SAVE_DIR;
         File fileSaveDir = new File(savePath);

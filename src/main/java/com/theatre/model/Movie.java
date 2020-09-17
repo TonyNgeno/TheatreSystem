@@ -1,15 +1,11 @@
 package com.theatre.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 
 @Entity
 @Table(name = "movies")
-public class Movie implements Serializable {
-
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+public class Movie extends BaseEntity {
     @Column
     private String movieName;
 
@@ -17,15 +13,10 @@ public class Movie implements Serializable {
     private String description;
 
     @Column
+    private String movieLength;
+
+    @Column
     private String path;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getMovieName() {
         return movieName;
@@ -49,6 +40,14 @@ public class Movie implements Serializable {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getMovieLength() {
+        return movieLength;
+    }
+
+    public void setMovieLength(String movieLength) {
+        this.movieLength = movieLength;
     }
 }
 

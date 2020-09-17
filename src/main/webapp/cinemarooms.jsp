@@ -6,7 +6,6 @@
 <%@page import="javax.sql.DataSource" %>
 <%@page import="javax.annotation.Resource" %>
 <%@page import="javax.naming.*" %>
-
 <html>
 
 <head>
@@ -31,6 +30,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Room Name</th>
                 <th scope="col">No of Seats</th>
+                <th scope="col">Picture</th>
                 <th scope="col">Action</th>
             </thead>
 		</tr><br>
@@ -55,6 +55,7 @@
                 <td><%=count%></td>
                 <td><%=result.getString("name")%></td>
                 <td><%=result.getString("noOfSeats")%></td>
+                <td><%=result.getBlob("roomPic")%></td>
                 <td>
                      <a href="updaterooms.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><button class="btn btn-success btn-sm rounded-0" href="updaterooms.jsp?id=<%=result.getString("id") %>"  type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
                      <a href="deleterooms.jsp?id=<%=result.getString("id") %>"onclick="return confirm('Are you sure you want to delete?')"  class="delete" title="Delete" data-toggle="tooltip"><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
