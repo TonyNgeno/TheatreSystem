@@ -1,7 +1,5 @@
 package com.theatre.model;
 
-import com.theatre.bean.Contact;
-
 import javax.persistence.*;
 
 @Entity
@@ -9,36 +7,69 @@ import javax.persistence.*;
 public class Booking extends BaseEntity {
 
     @Column
-    private String name;
+    private String username;
 
-    @OneToOne
-    private Ticket ticket;
+    @Column
+    private String phoneNo;
 
-    @Embedded
-    private Contact contact;
+    @Column
+    private String movieName;
+
+    @Column
+    private String cinemaRoomName;
+
+    @Column
+    private String childrenNo;
+
+    @Column
+    private String adultNo;
 
 
-    public Ticket getTicket() {
-        return ticket;
+    public String getUsername() {
+        return username;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public Contact getContact() {
-        return contact;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setContact(Contact contact) {
-        this.contact = contact;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public String getName() {
-        return name;
+    public String getMovieName() {
+        return movieName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public String getCinemaRoomName() {
+        return cinemaRoomName;
+    }
+
+    public void setCinemaRoomName(String cinemaRoomName) {
+        this.cinemaRoomName = cinemaRoomName;
+    }
+
+    public String getChildrenNo() {
+        return childrenNo;
+    }
+
+    public void setChildrenNo(String childrenNo) {
+        this.childrenNo = childrenNo;
+    }
+
+    public String getAdultNo() {
+        return adultNo;
+    }
+
+    public void setAdultNo(String adultNo) {
+        this.adultNo = adultNo;
     }
 }

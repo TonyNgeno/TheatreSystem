@@ -1,6 +1,7 @@
 package com.theatre.servlet;
 
 import com.theatre.logic.interfaces.UserLogicI;
+import com.theatre.model.Message;
 import com.theatre.model.UserDetail;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -37,6 +38,9 @@ public class LoginServlet extends HttpServlet {
                 httpSession.setAttribute("userlogin", userDetails);
 
                 response.sendRedirect("index.jsp");
+
+      /*      new Message(false, "Failed Please enter details");
+*/
                 return;
             }
 

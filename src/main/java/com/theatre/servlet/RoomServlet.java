@@ -3,6 +3,7 @@ package com.theatre.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theatre.bean.RoomBeanI;
 import com.theatre.model.Room;
+import com.theatre.ws.rest.RoomRestApi;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.ejb.EJB;

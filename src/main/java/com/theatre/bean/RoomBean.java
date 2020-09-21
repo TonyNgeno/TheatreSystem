@@ -4,8 +4,8 @@ import com.theatre.model.Room;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -13,6 +13,9 @@ import java.util.List;
 @Stateless
 @Remote
 public class RoomBean implements RoomBeanI {
+
+    @Inject
+    private Room room;
 
     @PersistenceContext
     private EntityManager em;
@@ -38,5 +41,6 @@ public class RoomBean implements RoomBeanI {
 
         return "ok";
     }
+
 
 }

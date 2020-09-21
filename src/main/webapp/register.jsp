@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+<title>Register</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -14,25 +14,56 @@
 <body>
   <div class="sidenav">
            <div class="login-main-text">
-              <h2>Application<br> Login Page</h2>
-              <p>Login or register from here to access.</p>
+              <h2>Application<br> Registration Page</h2>
+              <p>Please Register from here to access.</p>
            </div>
         </div>
         <div class="main">
            <div class="col-md-6 col-sm-12">
               <div class="login-form">
                  <form  method = "post" action="userDetail">
+                     <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" name="bioData.firstname" required placeholder="First Name">
+                     </div>
+                     <div class="form-group">
+                        <label>Other Names</label>
+                        <input type="text" class="form-control" name="UserDetail.bioData.otherNames" required placeholder="Other Names">
+                     </div>
+                     <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" class="form-control" name="username" required placeholder="User Name">
+                     </div>
                     <div class="form-group">
-                       <label>User Name</label>
-                       <input type="text" class="form-control" name="username" placeholder="User Name">
+                    <label for="gender">Please Choose Your Gender:</label>
+                    <select name="bioData.gender" required id="gender">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                       <label>Id Number</label>
+                       <input type="text" class="form-control" name="bioData.idNo" required placeholder="Id Number">
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Your Email</label>
+                        <input type="text" class="form-control" name="contact.email" required placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Home Address</label>
+                        <input type="text" class="form-control" name="contact.address" required placeholder="Enter Home Address">
+                    </div>
+                    <div class="form-group">
+                      <label>Phone Number</label>
+                      <input type="text" class="form-control" name="contact.phoneNo" required placeholder="Phone Number ">
                     </div>
                     <div class="form-group">
                        <label>Password</label>
-                       <input type="password" class="form-control" name="password" placeholder="Password">
+                       <input type="password" class="form-control" name="password" required placeholder="Password">
                     </div>
                     <div class="form-group">
                        <label>Confirm Password</label>
-                       <input type="password" class="form-control" name="confirmpassword" placeholder="Password">
+                       <input type="password" class="form-control" name="confirmpassword" required placeholder="Password">
                     </div>
                     <button type="submit" name="btnSubmit" class="btn btn-black">Register</button>
                    <a href="login.jsp" class="tag">Login Here</a>

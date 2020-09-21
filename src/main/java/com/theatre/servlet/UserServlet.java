@@ -2,6 +2,7 @@ package com.theatre.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theatre.bean.UserBeanI;
+import com.theatre.logic.interfaces.UserLogicI;
 import com.theatre.model.UserDetail;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -17,8 +18,12 @@ import java.lang.reflect.InvocationTargetException;
 
 @WebServlet("/userDetail")
 public class UserServlet extends HttpServlet {
+
     @EJB
     private UserBeanI userBean;
+
+    @EJB
+    private UserLogicI userLogic;
 
     @Inject
     private UserDetail userDetail ;

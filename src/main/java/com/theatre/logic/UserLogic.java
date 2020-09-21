@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
-@Remote
+@Remote(UserLogicI.class)
 public class UserLogic implements UserLogicI {
 
     @PersistenceContext
@@ -20,8 +20,33 @@ public class UserLogic implements UserLogicI {
 
 
     @Override
-    public UserDetail getUser(int id) {
+    public UserDetail getUserById(int id) {
         return entityManager.find(UserDetail.class, id);
+    }
+
+    @Override
+    public UserDetail getUserByEmail(String email) {
+        try {
+            Query query = entityManager.createNamedQuery("UserDetail.findByEmail", UserDetail.class);
+            query.setParameter("userEmail", email);
+            return (UserDetail) query.getSingleResult();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public UserDetail getUserByUsernameAndPassword(String username, String password) {
+        try {
+            Query query = entityManager.createQuery("SELECT u FROM UserDetail u WHERE u.contact.email = :username OR u.username = :username AND u.password = :usrPwd");
+            query.setParameter("username", username);
+            query.setParameter("password", password);
+            return (UserDetail) query.getSingleResult();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return null;
+        }
     }
 
     @Override
@@ -47,6 +72,18 @@ public class UserLogic implements UserLogicI {
     public Message removeUser(UserDetail userDetail) {
         entityManager.remove(entityManager.find(UserDetail.class, userDetail));
         return new Message(true, "User Deleted Successfully", userDetail);
+    }
+
+    @Override
+    public Message removeUserByid(int id) {
+        entityManager.remove(entityManager.find(UserDetail.class, id));
+        return new Message(true, "User Deleted Successfully", id);
+    }
+
+    @Override
+    public Message updateUser(UserDetail userDetail) {
+        entityManager.merge(userDetail);
+        return new Message(true, "User information updated");
     }
 
     @Override

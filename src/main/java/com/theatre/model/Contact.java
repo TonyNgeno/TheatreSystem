@@ -1,4 +1,4 @@
-package com.theatre.bean;
+package com.theatre.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

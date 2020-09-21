@@ -1,9 +1,6 @@
 package com.theatre.model;
 
-import com.theatre.bean.Contact;
-
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "userdetails")

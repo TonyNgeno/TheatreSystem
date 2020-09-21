@@ -19,6 +19,7 @@ public class Message implements Serializable {
         this.success = success;
     }
 
+
     public String getMessage() {
         return message;
     }

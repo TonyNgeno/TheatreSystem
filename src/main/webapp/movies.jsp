@@ -7,6 +7,7 @@
 <%@page import="javax.annotation.Resource" %>
 <%@page import="javax.naming.*" %>
 <html>
+
 <head>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -15,14 +16,30 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Movies</title>
+<title>Rooms</title>
 </head>
 <body>
  <%@ include file="./page/navbar.jsp" %><br>
- <div class="container marketing">
+ <div class="container-lg">
+     <div class="table-responsive">
+         <div class="table-wrapper">
+             <div class="table-title">
+	<table class = "table table-bordered table-stripped table-condensed" align = "center">
+		<tr>
+		    <thead>
+                <th scope="col">No</th>
+                <th scope="col">Movie Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Length</th>
+                 <th scope="col">Picture</th>
+                <th scope="col">Action</th>
+            </thead>
+		</tr><br>
+		             <a href="addmovie.jsp"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Movie</button></a><br><br>
+
             <%
-             Context context = new InitialContext();
-             DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
+            Context context = new InitialContext();
+            DataSource dataSource = (DataSource)context.lookup("java:jboss/datasources/TheatreDS");
             try
             {
                 Connection connection = dataSource.getConnection();
@@ -34,27 +51,134 @@
                 {
                 count += 1;
                 %>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img class="img-circle" src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Generic placeholder image" width="140" height="140">
-                            <h2><%=result.getString("movieName")%></h2>
-                            <p><%=result.getString("description")%></p>
-                            <p><%=result.getString("movieLength")%> mins</p>
-                            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                            <a href="updatemovie.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="deletemovie.jsp?id=<%=result.getString("id") %>" onclick="return confirm('Are you sure you want to delete?')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </div>
-                    </div>
 
+                <tr>
+                <td><%=count%></td>
+                <td><%=result.getString("movieName")%></td>
+                <td><%=result.getString("description")%></td>
+                <td><%=result.getString("movieLength")%></td>
+                <td><%=result.getBlob("path")%></td>
+                <td>
+                     <a href="updatemovie.jsp?id=<%=result.getString("id") %>" class="edit" title="Edit" data-toggle="tooltip"><button class="btn btn-success btn-sm rounded-0" href="updatemovie.jsp?id=<%=result.getString("id") %>"  type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                     <a href="deletemovie.jsp?id=<%=result.getString("id") %>"onclick="return confirm('Are you sure you want to delete?')"  class="delete" title="Delete" data-toggle="tooltip"><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
+                </td>
+
+                </tr>
                 <%
+
                 }
+                 connection.close();
             }
             catch(Exception ex)
             {
                 out.println("Exception:" +ex.getMessage());
                 ex.printStackTrace();
             }
-        %>
-</div>
+
+            %>
+	</table>
+    </div>
+        </div>
+            </div>
+                </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

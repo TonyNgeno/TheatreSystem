@@ -6,6 +6,14 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "movieschedules")
+@NamedQueries({
+        @NamedQuery(name = "MovieSchedule.findAll", query = "SELECT ms FROM MovieSchedule ms"),
+        @NamedQuery(name = "MovieSchedule.findAllSchedulesOrdered", query = "SELECT ms FROM MovieSchedule ms ORDER BY ms.startTime DESC"),
+        @NamedQuery(name = "MovieSchedule.findByMovieName", query = "SELECT ms FROM MovieSchedule ms WHERE ms.movieName = :movieName"),
+        @NamedQuery(name = "MovieSchedule.findByStartTime", query = "SELECT ms FROM MovieSchedule ms WHERE ms.startTime = :startTime"),
+        @NamedQuery(name = "MovieSchedule.findByEndTime", query = "SELECT ms FROM MovieSchedule ms WHERE ms.endTime = :endTime"),
+        @NamedQuery(name = "MovieSchedule.findByCinemaRoomName", query = "SELECT ms FROM MovieSchedule ms WHERE ms.cinemaRoomName = :cinemaRoomName"),
+        @NamedQuery(name = "MovieSchedule.findByDate", query = "SELECT ms FROM MovieSchedule ms WHERE ms.date = :date"),})
 public class MovieSchedule extends BaseEntity {
 
     @Column
@@ -22,6 +30,9 @@ public class MovieSchedule extends BaseEntity {
 
     @Column
     private String cinemaRoomName;
+
+    @ManyToOne
+    private Movie movie;
 
     public String getStartTime() {
         return startTime;
