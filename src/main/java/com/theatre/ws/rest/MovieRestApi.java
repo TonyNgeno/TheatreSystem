@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Stateless
 @Path("/movies")
@@ -43,7 +44,7 @@ public class MovieRestApi {
     @GET
     @Path(value = "/findMovieByName/{name}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Movie getMovieByName(@PathParam(value = "name") String name) {
+    public List<Movie> getMovieByName(@PathParam(value = "name") String name) {
         return movieLogic.getMovieByName(name);
     }
 

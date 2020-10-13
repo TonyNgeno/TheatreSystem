@@ -1,42 +1,45 @@
+
 (function(){
-    SystechSkulJsLib.showGrid.call({
-        dataUrl: 'addMovie',
-        gridStyle: 'customers',
-        componentId: 'movie',
+    TheatreSysLib.showGrid.call({
+        dataUrl: 'movies/list',
+        gridStyle: 'datatable table table-hover table-center mb-0',
+        componentId: 'movies',
         gridColumns:[{
+            header: 'Id',
+            dataIndex: 'id'
+        },{
             header: 'Movie Name',
             dataIndex: 'movieName'
         },{
             header: 'Description',
             dataIndex: 'description'
         },{
-            header: 'Description',
-            dataIndex: 'description'
+            header: 'Movie Length(in mins)',
+            dataIndex: 'movieLength'
         }],
         gridButtons: [{
-            label: 'Add Movie',
-            cssClass: 'action-btn',
+            linkToJsp:'./addmovie.jsp',
+            label: 'Add a Movie',
+            cssClass: 'btn btn-info add-new',
             fontAwesomeIcon: 'fa-plus',
             handler: 'addButton',
             id: 'movie-addButton',
         }],
         formField: [{
-            label: 'Movie Name',
+            label: 'Enter Movie Name',
             name: 'movieName',
             type: 'text',
-            id: 'movie-id',
-            storeModel: {
-                url: 'organization',
-                dataBinding: {
-                    display : 'name',
-                    id: 'id'
-                }
-            }
+            id: 'movieName'
         },{
-            label: 'Description Name',
+            label: 'Enter Description',
             name: 'description',
             type: 'text',
-            id: 'faculty-description'
+            id: 'description'
+        },{
+            label: 'Movie Length',
+            name: 'movieLength',
+            type: 'text',
+            id: 'movieLength'
         }]
     });
 })();

@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.List;
 
 @Stateless
 @Remote(MovieScheduleLogicI.class)
@@ -27,11 +28,11 @@ public class MovieScheduleLogic implements MovieScheduleLogicI {
     }
 
     @Override
-    public MovieSchedule getScheduleStartTime(String startTime) {
+    public List<MovieSchedule> getScheduleStartTime(String startTime) {
         try {
             Query query = entityManager.createNamedQuery("MovieSchedule.findByStartTime", MovieSchedule.class);
             query.setParameter("startTime", startTime);
-            return (MovieSchedule) query.getSingleResult();
+            return (List<MovieSchedule>) query.getResultList();
         }
         catch (Exception e) {
             System.err.println(e.getMessage());
@@ -53,11 +54,11 @@ public class MovieScheduleLogic implements MovieScheduleLogicI {
     }
 
     @Override
-    public MovieSchedule getScheduleEndTime(String endTime) {
+    public List<MovieSchedule> getScheduleEndTime(String endTime) {
         try {
             Query query = entityManager.createNamedQuery("MovieSchedule.findByEndTime", MovieSchedule.class);
             query.setParameter("endTime", endTime);
-            return (MovieSchedule) query.getSingleResult();
+            return (List<MovieSchedule>) query.getResultList();
         }
         catch (Exception e) {
             System.err.println(e.getMessage());
@@ -66,11 +67,11 @@ public class MovieScheduleLogic implements MovieScheduleLogicI {
     }
 
     @Override
-    public MovieSchedule getScheduleByMovieName(String movieName) {
+    public List<MovieSchedule> getScheduleByMovieName(String movieName) {
         try {
             Query query = entityManager.createNamedQuery("MovieSchedule.findByMovieName", MovieSchedule.class);
             query.setParameter("movieName", movieName);
-            return (MovieSchedule) query.getSingleResult();
+            return (List<MovieSchedule>) query.getResultList();
         }
         catch (Exception e) {
             System.err.println(e.getMessage());
@@ -79,11 +80,11 @@ public class MovieScheduleLogic implements MovieScheduleLogicI {
     }
 
     @Override
-    public MovieSchedule getScheduleByDate(String date) {
+    public List<MovieSchedule> getScheduleByDate(String date) {
         try {
             Query query = entityManager.createNamedQuery("MovieSchedule.findByDate", MovieSchedule.class);
             query.setParameter("date", date);
-            return (MovieSchedule) query.getSingleResult();
+            return (List<MovieSchedule>) query.getResultList();
         }
         catch (Exception e) {
             System.err.println(e.getMessage());
@@ -92,11 +93,11 @@ public class MovieScheduleLogic implements MovieScheduleLogicI {
     }
 
     @Override
-    public MovieSchedule getScheduleByCinemaRoomName(String cinemaRoomName) {
+    public List<MovieSchedule> getScheduleByCinemaRoomName(String cinemaRoomName) {
         try {
             Query query = entityManager.createNamedQuery("MovieSchedule.findByCinemaRoomName", MovieSchedule.class);
             query.setParameter("cinemaRoomName", cinemaRoomName);
-            return (MovieSchedule) query.getSingleResult();
+            return (List<MovieSchedule>) query.getResultList();
         }
         catch (Exception e) {
             System.err.println(e.getMessage());

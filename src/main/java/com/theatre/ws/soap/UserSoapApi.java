@@ -58,7 +58,7 @@ public class UserSoapApi {
             userBean.add(userDetail);
         } catch (Exception ex) {
             return "{\"FAILURE\":\"" + ex.getMessage() + "\"}";
-            }
+        }
         return "{\"SUCCESS\":\"OK\"}";
     }
 

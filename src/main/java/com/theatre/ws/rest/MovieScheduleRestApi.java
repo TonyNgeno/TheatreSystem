@@ -3,16 +3,16 @@ package com.theatre.ws.rest;
 import com.theatre.bean.MovieScheduleBeanI;
 import com.theatre.logic.interfaces.MovieScheduleLogicI;
 import com.theatre.model.Message;
-import com.theatre.model.Movie;
+
 import com.theatre.model.MovieSchedule;
-import com.theatre.model.UserDetail;
+
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Stateless
 @Path("/schedules")
@@ -43,35 +43,35 @@ public class MovieScheduleRestApi {
     @GET
     @Path(value = "/findScheduleByMovieName/{movieName}")
     @Produces({MediaType.APPLICATION_JSON})
-    public MovieSchedule getScheduleByMovieName(@PathParam(value = "movieName") String movieName) {
+    public List<MovieSchedule> getScheduleByMovieName(@PathParam(value = "movieName") String movieName) {
         return movieScheduleLogic.getScheduleByMovieName(movieName);
     }
 
     @GET
     @Path(value = "/findScheduleByCinemaRoomName/{cinemaRoomName}")
     @Produces({MediaType.APPLICATION_JSON})
-    public MovieSchedule getScheduleByCinemaRoomName(@PathParam(value = "cinemaRoomName") String cinemaRoomName) {
+    public List<MovieSchedule>  getScheduleByCinemaRoomName(@PathParam(value = "cinemaRoomName") String cinemaRoomName) {
         return movieScheduleLogic.getScheduleByCinemaRoomName(cinemaRoomName);
     }
 
     @GET
     @Path(value = "/findScheduleByDate/{date}")
     @Produces({MediaType.APPLICATION_JSON})
-    public MovieSchedule getScheduleByDate(@PathParam(value = "date") String date) {
+    public List<MovieSchedule>  getScheduleByDate(@PathParam(value = "date") String date) {
         return movieScheduleLogic.getScheduleByDate(date);
     }
 
     @GET
     @Path(value = "/findScheduleByStartTime/{startTime}")
     @Produces({MediaType.APPLICATION_JSON})
-    public MovieSchedule getScheduleStartTime(@PathParam(value = "startTime") String startTime) {
+    public List<MovieSchedule>  getScheduleStartTime(@PathParam(value = "startTime") String startTime) {
         return movieScheduleLogic.getScheduleStartTime(startTime);
     }
 
     @GET
     @Path(value = "/findScheduleByEndTime/{endTime}")
     @Produces({MediaType.APPLICATION_JSON})
-    public MovieSchedule getScheduleEndTime(@PathParam(value = "endTime") String endTime) {
+    public List<MovieSchedule>  getScheduleEndTime(@PathParam(value = "endTime") String endTime) {
         return movieScheduleLogic.getScheduleEndTime(endTime);
     }
 

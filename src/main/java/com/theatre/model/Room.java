@@ -6,15 +6,11 @@ import java.sql.Blob;
 
 @Entity
 @Table(name = "rooms")
-/*@NamedQueries({
-        @NamedQuery(name = "Room.deleteRoomById", query = "delete r FROM Room r where r.id = :id"),
-        @NamedQuery(name = "Room.findByName", query = "SELECT r FROM Room r WHERE r.name = :name"),})*/
 @NamedQueries({
         @NamedQuery(name = "Room.deleteRoomById", query = "delete FROM Room r where r.id = :id"),
         @NamedQuery(name = "Room.findRoomByid", query = "SELECT r FROM Room r WHERE r.id = :id"),
         @NamedQuery(name = "Room.findByName", query = "SELECT r FROM Room r WHERE r.name = :name"),})
 public class Room extends BaseEntity {
-
 
     @Column
     private String name;
@@ -40,5 +36,4 @@ public class Room extends BaseEntity {
     public void setNoOfSeats(String noOfSeats) {
         this.noOfSeats = noOfSeats;
     }
-
 }

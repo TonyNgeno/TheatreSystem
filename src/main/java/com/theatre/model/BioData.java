@@ -4,9 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.io.Serializable;
 
 @Embeddable
-public class BioData {
+public class BioData implements Serializable {
 
     @Column
     private String firstname;

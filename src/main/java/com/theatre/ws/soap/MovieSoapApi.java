@@ -29,7 +29,7 @@ public class MovieSoapApi {
     }
 
     @WebMethod(operationName = "getMovieByName")
-    public Movie getMovieByName(@WebParam(name = "name") String name) {
+    public List<Movie> getMovieByName(@WebParam(name = "name") String name) {
         return movieLogic.getMovieByName(name);
     }
 

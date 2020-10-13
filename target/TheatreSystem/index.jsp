@@ -8,16 +8,6 @@
 <%@page import="javax.annotation.Resource" %>
 <%@page import="javax.naming.*" %>
 
-<%
-
-UserDetail userDetails = (UserDetail)session.getAttribute("userlogin");
-
-if(userDetails == null){
-    response.sendRedirect("login.jsp");
-    return;
-}
-
-%>
 <!DOCTYPE html>
 <html>
 <head>

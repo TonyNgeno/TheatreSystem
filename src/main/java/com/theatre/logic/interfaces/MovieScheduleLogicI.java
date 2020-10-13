@@ -2,26 +2,28 @@ package com.theatre.logic.interfaces;
 
 import com.theatre.model.Message;
 import com.theatre.model.MovieSchedule;
+import com.theatre.model.UserDetail;
 
 import javax.ejb.Remote;
+import java.util.List;
 
 @Remote
 public interface MovieScheduleLogicI {
 
     MovieSchedule getScheduleById(int id);
 
-    MovieSchedule getScheduleStartTime(String startTime);
+    List<MovieSchedule> getScheduleStartTime(String startTime);
 
     Message removeScheduleByid(int id);
 
     Message addSchedule(MovieSchedule movieSchedule);
 
-    MovieSchedule getScheduleEndTime(String endTime);
+    List<MovieSchedule> getScheduleEndTime(String endTime);
 
-    MovieSchedule getScheduleByMovieName(String movieName);
+    List<MovieSchedule> getScheduleByMovieName(String movieName);
 
-    MovieSchedule getScheduleByDate(String date);
+    List<MovieSchedule> getScheduleByDate(String date);
 
-    MovieSchedule getScheduleByCinemaRoomName(String cinemaRoomName);
+    List<MovieSchedule> getScheduleByCinemaRoomName(String cinemaRoomName);
 
 }

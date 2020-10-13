@@ -21,42 +21,40 @@
         <div class="main">
            <div class="col-md-6 col-sm-12">
               <div class="login-form">
-                 <form  method = "post" action="userDetail">
+                 <form method = "post" action="userDetail">
                      <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" name="bioData.firstname" required placeholder="First Name">
+                        <input type="text" class="form-control" name="firstname" required placeholder="First Name">
                      </div>
                      <div class="form-group">
                         <label>Other Names</label>
-                        <input type="text" class="form-control" name="UserDetail.bioData.otherNames" required placeholder="Other Names">
+                        <input type="text" class="form-control" name="otherNames" required placeholder="Other Names">
                      </div>
                      <div class="form-group">
                         <label>User Name</label>
                         <input type="text" class="form-control" name="username" required placeholder="User Name">
                      </div>
-                    <div class="form-group">
-                    <label for="gender">Please Choose Your Gender:</label>
-                    <select name="bioData.gender" required id="gender">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
-                    </div>
+
                     <div class="form-group">
                        <label>Id Number</label>
-                       <input type="text" class="form-control" name="bioData.idNo" required placeholder="Id Number">
+                       <input type="text" class="form-control" name="idNo" required placeholder="Id Number">
                     </div>
                     <div class="form-group">
                         <label>Enter Your Email</label>
-                        <input type="text" class="form-control" name="contact.email" required placeholder="Email">
+                        <input type="text" class="form-control" name="email" required placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label>Your Home Address</label>
-                        <input type="text" class="form-control" name="contact.address" required placeholder="Enter Home Address">
+                        <input type="text" class="form-control" name="address" required placeholder="Enter Home Address">
                     </div>
                     <div class="form-group">
-                      <label>Phone Number</label>
-                      <input type="text" class="form-control" name="contact.phoneNo" required placeholder="Phone Number ">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control" name="phoneNo" required placeholder="Phone Number ">
                     </div>
+                     <div class="form-group">
+                        <label>User Role</label>
+                        <input type="text" class="form-control" name="role" required placeholder="Enter Your Role">
+                     </div>
                     <div class="form-group">
                        <label>Password</label>
                        <input type="password" class="form-control" name="password" required placeholder="Password">

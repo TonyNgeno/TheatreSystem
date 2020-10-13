@@ -37,6 +37,7 @@
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/ws/soap/MovieSoapApi.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/model/MovieSchedule.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/servlet/RoomServlet.java
+/home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/servlet/FileUploadServlet.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/bean/RoomBean.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/logic/UserLogic.java
 /home/coderiot/Desktop/Systech/Leearning/TheatreSystem/src/main/java/com/theatre/model/UserDetail.java

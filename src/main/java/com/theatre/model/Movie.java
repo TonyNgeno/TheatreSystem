@@ -22,10 +22,11 @@ public class Movie extends BaseEntity {
     private String description;
 
     @Column
-    private String movieLength;
+    private String type;
 
     @Column
-    private String path;
+    private String movieLength;
+
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<MovieSchedule> movieSchedules = new ArrayList<MovieSchedule>();
@@ -46,13 +47,6 @@ public class Movie extends BaseEntity {
         this.description = description;
     }
 
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
 
     public String getMovieLength() {
         return movieLength;
@@ -61,6 +55,16 @@ public class Movie extends BaseEntity {
     public void setMovieLength(String movieLength) {
         this.movieLength = movieLength;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
 
     @XmlTransient
     @JsonIgnore

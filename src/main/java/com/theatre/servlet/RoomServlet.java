@@ -7,6 +7,7 @@ import com.theatre.ws.rest.RoomRestApi;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.ejb.EJB;
+import javax.ejb.SessionContext;
 import javax.inject.Inject;
 
 import javax.servlet.ServletException;
@@ -30,6 +31,7 @@ public class RoomServlet extends HttpServlet {
 
         ObjectMapper mapper = new ObjectMapper();
         resp.getWriter().print(mapper.writeValueAsString(roomBean.list()));
+    
 
     }
 

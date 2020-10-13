@@ -12,9 +12,10 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Stateless
-@Path("/room")
+@Path("/roomapi")
 public class RoomRestApi {
 
     @EJB
@@ -40,7 +41,7 @@ public class RoomRestApi {
     @GET
     @Path(value = "/findRoomByName/{name}")
     @Produces({MediaType.APPLICATION_JSON})
-    public Room getRoomByName(@PathParam(value = "name") String name) {
+    public List<Room> getRoomByName(@PathParam(value = "name") String name) {
         return roomLogic.getRoomByName(name);
     }
 

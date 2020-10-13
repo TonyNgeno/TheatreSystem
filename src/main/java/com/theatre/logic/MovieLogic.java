@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.List;
 
 @Stateless
 @Remote(MovieLogicI.class)
@@ -20,11 +21,11 @@ public class MovieLogic implements MovieLogicI {
     private EntityManager entityManager;
 
     @Override
-    public Movie getMovieByName(String name) {
+    public List<Movie> getMovieByName(String name) {
         try {
             Query query = entityManager.createNamedQuery("Movie.findByName", Movie.class);
             query.setParameter("movieName", name);
-            return (Movie) query.getSingleResult();
+            return (List<Movie>) query.getResultList();
         }
         catch (Exception e) {
             System.err.println(e.getMessage());

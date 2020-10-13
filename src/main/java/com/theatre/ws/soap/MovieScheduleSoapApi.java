@@ -35,33 +35,33 @@ public class MovieScheduleSoapApi {
 
 
     @WebMethod(operationName = "getMovieScheduleByMovieName")
-    public MovieSchedule getScheduleByMovieName(@WebParam(name = "name") String name) {
-        return movieScheduleLogic.getScheduleByMovieName(name);
+    public List<MovieSchedule> getScheduleByMovieName(@WebParam(name = "name") String name) {
+        return (List<MovieSchedule>) movieScheduleLogic.getScheduleByMovieName(name);
     }
 
     @WebMethod(operationName = "getMovieScheduleByCinemaRoomName")
-    public MovieSchedule getScheduleByCinemaRoomName(@WebParam(name = "cinemaRoomName") String cinemaRoomName) {
-        return movieScheduleLogic.getScheduleByCinemaRoomName(cinemaRoomName);
+    public List<MovieSchedule>  getScheduleByCinemaRoomName(@WebParam(name = "cinemaRoomName") String cinemaRoomName) {
+        return (List<MovieSchedule>) movieScheduleLogic.getScheduleByCinemaRoomName(cinemaRoomName);
     }
 
     @WebMethod(operationName = "getScheduleById")
-    public MovieSchedule getScheduleById(@WebParam(name = "id") int id) {
-        return movieScheduleLogic.getScheduleById(id);
+    public List<MovieSchedule>  getScheduleById(@WebParam(name = "id") int id) {
+        return (List<MovieSchedule>) movieScheduleLogic.getScheduleById(id);
     }
 
     @WebMethod(operationName = "getScheduleByDate")
-    public MovieSchedule getScheduleByDate(@WebParam(name = "date") String date) {
-        return movieScheduleLogic.getScheduleByDate(date);
+    public List<MovieSchedule>  getScheduleByDate(@WebParam(name = "date") String date) {
+        return (List<MovieSchedule>) movieScheduleLogic.getScheduleByDate(date);
     }
 
     @WebMethod(operationName = "getScheduleStartTime")
-    public MovieSchedule getScheduleStartTime(@WebParam(name = "startTime") String startTime) {
-        return movieScheduleLogic.getScheduleStartTime(startTime);
+    public List<MovieSchedule>  getScheduleStartTime(@WebParam(name = "startTime") String startTime) {
+        return (List<MovieSchedule>) movieScheduleLogic.getScheduleStartTime(startTime);
     }
 
     @WebMethod(operationName = "getScheduleEndTime")
-    public MovieSchedule getScheduleEndTime(@WebParam(name = "endTime") String endTime) {
-        return movieScheduleLogic.getScheduleEndTime(endTime);
+    public List<MovieSchedule>  getScheduleEndTime(@WebParam(name = "endTime") String endTime) {
+        return (List<MovieSchedule>) movieScheduleLogic.getScheduleEndTime(endTime);
     }
 
     @WebMethod(operationName = "removeScheduleByid")

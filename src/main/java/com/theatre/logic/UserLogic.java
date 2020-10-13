@@ -88,7 +88,7 @@ public class UserLogic implements UserLogicI {
 
     @Override
     public List<UserDetail> getUsers(int limit) {
-         if (limit == -1) {
+        if (limit == -1) {
             return entityManager.createNamedQuery("Users.findAllOrdered").getResultList();
         }
 

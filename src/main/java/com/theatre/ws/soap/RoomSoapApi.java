@@ -30,8 +30,8 @@ public class RoomSoapApi {
     }
 
     @WebMethod(operationName = "getRoomByName")
-    public Room getRoomByName(@WebParam(name = "name") String name) {
-        return roomLogic.getRoomByName(name);
+    public List<Room> getRoomByName(@WebParam(name = "name") String name) {
+        return (List<Room>) roomLogic.getRoomByName(name);
     }
 
     @WebMethod(operationName = "addRoom")

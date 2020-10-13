@@ -3,6 +3,8 @@ package com.theatre.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theatre.bean.UserBeanI;
 import com.theatre.logic.interfaces.UserLogicI;
+import com.theatre.model.BioData;
+import com.theatre.model.Contact;
 import com.theatre.model.UserDetail;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -28,6 +30,12 @@ public class UserServlet extends HttpServlet {
     @Inject
     private UserDetail userDetail ;
 
+    @Inject
+    private Contact contact ;
+
+    @Inject
+    private BioData bioData ;
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         ObjectMapper mapper = new ObjectMapper();
@@ -39,6 +47,10 @@ public class UserServlet extends HttpServlet {
 
         try {
             BeanUtils.populate(userDetail, request.getParameterMap());
+            BeanUtils.populate(bioData, request.getParameterMap());
+            BeanUtils.populate(contact, request.getParameterMap());
+            userDetail.setBioData(bioData);
+            userDetail.setContact(contact);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -46,7 +58,7 @@ public class UserServlet extends HttpServlet {
         }
 
         response.getWriter().print(userBean.add(userDetail));
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("frontend/sign-in.jsp");
     }
 
 }

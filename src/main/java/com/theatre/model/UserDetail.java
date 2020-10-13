@@ -1,6 +1,7 @@
 package com.theatre.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "userdetails")
@@ -23,6 +24,9 @@ public class UserDetail extends BaseEntity {
 
     @Column
     private String password;
+
+    @Column
+    private String role;
 
     @Transient
     private String confirmpassword;
@@ -65,5 +69,13 @@ public class UserDetail extends BaseEntity {
 
     public void setConfirmpassword(String confirmpassword) {
         this.confirmpassword = confirmpassword;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

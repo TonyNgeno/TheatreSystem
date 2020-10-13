@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 @WebServlet("/loginUser")
 public class LoginServlet extends HttpServlet {
@@ -37,11 +39,26 @@ public class LoginServlet extends HttpServlet {
 
                 httpSession.setAttribute("userlogin", userDetails);
 
-                response.sendRedirect("index.jsp");
+            /*    response.sendRedirect("index.jsp");*/
 
-      /*      new Message(false, "Failed Please enter details");
-*/
-                return;
+                if (userDetails.getRole().equals("Admin")){
+                    response.sendRedirect("index.jsp");
+                }
+                else if (userDetails.getRole().equals("Customer")){
+                    response.sendRedirect("frontend/index.jsp");
+                }
+                else {
+                    response.sendRedirect("frontend/sign-in.jsp");
+                }
+
+
+            }
+            else {
+                PrintWriter out = response.getWriter();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('User or password incorrect');");
+                out.println("location='frontend/sign-in.jsp';");
+                out.println("</script>");
             }
 
         } catch (IllegalAccessException e) {
@@ -50,7 +67,7 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("login.jsp");
+        /*response.sendRedirect("frontend/sign-in.jsp");*/
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
